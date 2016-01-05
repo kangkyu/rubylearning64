@@ -22,7 +22,7 @@ File.open(filename, 'r') do |file|
     end
   end
 end
-FileUtils.mv "#{filename}_new", filename # use fileutils stdlib, not direct command
+File.rename "#{filename}_new", filename # use core-ruby (File.rename), not direct command or stdlib (FileUtils.mv)
 
 case word_count
 when 0 then puts "no 'word' to be replaced in file '#{filename}'"
